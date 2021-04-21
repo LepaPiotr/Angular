@@ -1,0 +1,14 @@
+
+<!-- <div *ngFor="let prod of products"> 
+    {{prod.productId}} {{prod.productName}} 
+    {{prod.productPhotoLink}}  {{prod.productManufacturer.companyId}}
+     {{prod.productManufacturer.companyName}} </div> -->
+
+     <app-product-card (productSelected)="onProductSelected($event)"
+      style="margin-right: 40px; float: left; text-align: center;"
+       *ngFor="let prod of products; index as i; first as isFirst; last as isLast; even as isEven, odd as isOdd"
+       [class.first]="isFirst"
+       [class.even]="isEven"
+       [class.odd]="isOdd"
+       [class.last]="isLast"
+        [product]="prod" [prodIndex]='i + 1' ></app-product-card>

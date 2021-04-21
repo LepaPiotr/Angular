@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactory } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first';
+constructor(){
+}
+  keyUp(val:string){
+    this.title = val;
+  }
+
 }

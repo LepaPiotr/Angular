@@ -1,0 +1,17 @@
+
+<div class="product-card " *ngIf="product"
+ [ngClass]="getCardClasses()" >
+    
+    <img class="photo" [src]="product.productPhotoLink" alt="ni ma zdjęcia"  *ngIf="isImagaVisable(); else noImage">
+    <p> {{prodIndex + ' ' + product.productManufacturer.companyName + ' ' + product.productName}}</p>
+    <button (click)="onProductViewed()">View product</button>
+</div>
+
+<ng-template #noImage>
+
+<p>i have no image nygga</p>
+
+</ng-template>
+
+<!-- {{product.productManufacturer.companyId}}.
+{{product.productId}}. -->

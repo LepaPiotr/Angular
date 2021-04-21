@@ -1,0 +1,32 @@
+.product-card {
+  width: 300px;
+  height: 450px;
+  border: 1px solid black;
+  border-radius: 1%;
+  /* background-color: #123; */
+  text-align: center;
+  margin: auto;
+}
+.product-card.xiaomi{
+background-color: red;
+}
+
+.product-card.samsung{
+  background-color: blueviolet;
+  }
+
+img.photo {
+  width: 300px;
+  height: 300px;
+}
+
+p {
+  color: white;
+}
+
+button {
+  color: white;
+  width: 100px;
+  height: 30px;
+}
+
