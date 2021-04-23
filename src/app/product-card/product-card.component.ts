@@ -28,14 +28,8 @@ export class ProductCardComponent implements OnInit {
   }
 
   isImagaVisable(){
-    return this.product && this.product.productPhotoLink
+    return this.product 
   }
-  getCardClasses() { 
-    return {'xiaomi': this.product.productManufacturer.companyId == 1,
-    'samsung': this.product.productManufacturer.companyId == 2};
-
-  }
-
 
   onLogoClicked() {
     alert("Hello word");

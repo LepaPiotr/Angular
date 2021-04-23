@@ -12,6 +12,6 @@ export class GetProductsService {
   ) { }
 
   apiCall(){
-    return this.http.get<Product[]>('http://localhost:8080/application/product');
+    return this.http.get<Product[]>('http://localhost:8080/product');
   }
 }

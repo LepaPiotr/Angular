@@ -1,14 +1,29 @@
-
-<!-- <div *ngFor="let prod of products"> 
-    {{prod.productId}} {{prod.productName}} 
-    {{prod.productPhotoLink}}  {{prod.productManufacturer.companyId}}
-     {{prod.productManufacturer.companyName}} </div> -->
-
-     <app-product-card (productSelected)="onProductSelected($event)"
-      style="margin-right: 40px; float: left; text-align: center;"
+<!-- <p-table [value]="products">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Shop</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.shop}}</td>
+        </tr>
+    </ng-template>
+</p-table> -->
+    
+    
+    
+    
+    
+    <app-product-card (productSelected)="onProductSelected($event)"
+      style="margin-right: 40px; float: left; text-align: center; width: 100%;"
        *ngFor="let prod of products; index as i; first as isFirst; last as isLast; even as isEven, odd as isOdd"
        [class.first]="isFirst"
        [class.even]="isEven"
        [class.odd]="isOdd"
        [class.last]="isLast"
-        [product]="prod" [prodIndex]='i + 1' ></app-product-card>
+       [product]="prod" [prodIndex]='i + 1' ></app-product-card>

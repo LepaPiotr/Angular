@@ -1,8 +1,9 @@
-import{Company} from './Company'
+// import{Company} from './Company'
 
 export interface Product {
-    productId: number;
-    productName: string;
-    productPhotoLink: string;
-    productManufacturer: Company;
+    id: string;
+    name: string;
+    shop: string;
+    Date: Date;
+    lastKnowPrice: number;
   }

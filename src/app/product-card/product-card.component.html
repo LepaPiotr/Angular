@@ -1,9 +1,23 @@
 
-<div class="product-card " *ngIf="product"
- [ngClass]="getCardClasses()" >
-    
-    <img class="photo" [src]="product.productPhotoLink" alt="ni ma zdjęcia"  *ngIf="isImagaVisable(); else noImage">
-    <p> {{prodIndex + ' ' + product.productManufacturer.companyName + ' ' + product.productName}}</p>
+<div *ngIf="product">
+<div style="width: 4%; float: left;">
+    {{prodIndex}}
+</div>
+<div style="width: 54%; float: left; text-align: left;">
+    {{product.name}}
+</div>
+<div style="width: 15%; float: left; text-align: left;">
+    {{product.lastKnowPrice}}
+</div>
+<div style="width: 15%; float: left;">
+    {{product.shop}}
+</div>
+</div>
+
+
+
+<!-- <div class="product-card " *ngIf="product" >
+    <p> {{prodIndex + ' ' + product.name + ' ' + product.shop}}</p>
     <button (click)="onProductViewed()">View product</button>
 </div>
 
@@ -11,7 +25,5 @@
 
 <p>i have no image nygga</p>
 
-</ng-template>
+</ng-template> -->
 
-<!-- {{product.productManufacturer.companyId}}.
-{{product.productId}}. -->

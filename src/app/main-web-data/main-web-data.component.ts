@@ -22,8 +22,7 @@ export class MainWebDataComponent implements OnInit {
       this.api.apiCall().subscribe((data : Product[]) => {
         console.log("get api data" , data);
     
-          this.products = data;
-        
+        this.products = data;
         this.product1 = this.products[0];
         this.product2 = this.products[1];
         this.product3 = this.products[2];
