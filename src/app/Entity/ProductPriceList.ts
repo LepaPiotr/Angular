@@ -1,9 +1,10 @@
 // import{Company} from './Company'
 
-export interface Product {
+export interface ProductPriceList {
     id: string;
+    productId: string;
     name: string;
     shop: string;
-    dateOfActualization: Date;
-    lastKnowPrice: number;
+    dateOfAdd: Date;
+    price: number;
   }
