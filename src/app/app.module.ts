@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MainWebDataComponent } from './main-web-data/main-web-data.component';
+import { TableModule } from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { MainWebDataComponent } from './main-web-data/main-web-data.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    TableModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GetProductsService } from '../get-products.service';
 import { Product } from '../Entity/Product';
+import { TableModule } from 'primeng/table';
+
 
 @Component({
   selector: 'app-main-web-data',
@@ -23,9 +25,9 @@ export class MainWebDataComponent implements OnInit {
         console.log("get api data" , data);
     
         this.products = data;
-        this.product1 = this.products[0];
-        this.product2 = this.products[1];
-        this.product3 = this.products[2];
+        // this.product1 = this.products[0];
+        // this.product2 = this.products[1];
+        // this.product3 = this.products[2];
     
       })
     }

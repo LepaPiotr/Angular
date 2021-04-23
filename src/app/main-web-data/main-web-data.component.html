@@ -4,21 +4,85 @@
             <th>Name</th>
             <th>Price</th>
             <th>Shop</th>
+            <th>Date</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product>
         <tr>
             <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
+            <td>{{product.lastKnowPrice}}</td>
             <td>{{product.shop}}</td>
+            <td>{{product.dateOfActualization}}</td>
         </tr>
     </ng-template>
 </p-table> -->
+
+<p-table [value]="products" dataKey="name">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem"></th>
+            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="lastKnowPrice">lastKnowPrice <p-sortIcon field="lastKnowPrice"></p-sortIcon></th>
+            <th pSortableColumn="shop">shop <p-sortIcon field="shop"></p-sortIcon></th>
+            <th pSortableColumn="dateOfActualization">dateOfActualization <p-sortIcon field="dateOfActualization"></p-sortIcon></th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-expanded="expanded">
+        <tr>
+            <td>
+                <button type="button" pButton pRipple [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+            </td>
+            <td>{{product.name}}</td>
+            <td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="p-shadow-4" /></td>
+            <td>{{product.lastKnowPrice | currency:'USD'}}</td>
+            <td>{{product.shop}}</td>
+            <td>{{product.dateOfActualization}}</td>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-product>
+        <tr>
+            <td colspan="7">
+                <div class="p-p-3">
+                    <!-- <p-table [value]="product.orders" dataKey="id">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th pSortableColumn="id">Id <p-sortIcon field="price"></p-sortIcon></th>
+                                <th pSortableColumn="customer">Customer <p-sortIcon field="customer"></p-sortIcon></th>
+                                <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>
+                                <th pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon></th>
+                                <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
+                                <th style="width: 4rem"></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-order>
+                            <tr>
+                                <td>{{order.id}}</td>
+                                <td>{{order.customer}}</td>
+                                <td>{{order.id}}</td>
+                                <td>{{order.amount | currency:'USD'}}</td>
+                                <td><span [class]="'order-badge order-' + order.status.toLowerCase()">{{order.status}}</span></td>
+                                <td><p-button type="button" icon="pi pi-search"></p-button></td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="6">There are no order for this product yet.</td>
+                            </tr>
+                        </ng-template>
+                    </p-table> -->
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+
+
     
-    
-    
-    
-    
+<!--     
     <app-product-card (productSelected)="onProductSelected($event)"
       style="margin-right: 40px; float: left; text-align: center; width: 100%;"
        *ngFor="let prod of products; index as i; first as isFirst; last as isLast; even as isEven, odd as isOdd"
@@ -26,4 +90,4 @@
        [class.even]="isEven"
        [class.odd]="isOdd"
        [class.last]="isLast"
-       [product]="prod" [prodIndex]='i + 1' ></app-product-card>
+       [product]="prod" [prodIndex]='i + 1' ></app-product-card> -->
