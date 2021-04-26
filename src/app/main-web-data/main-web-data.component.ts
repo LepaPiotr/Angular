@@ -25,12 +25,16 @@ export class MainWebDataComponent implements OnInit {
     
       })
     }
+
     onProductSelected(product:Product){
-      var something: ProductPriceList[] = [];
       this.api.apiCallProductPriceList(product.id).subscribe((data : ProductPriceList[]) => {
         console.log("get api data" , product.id);
         product.productPriceList = data;
       })
+    }
+
+    onPutPhraze(phraze:string){
+      this.api.apiPostFindPhraze(phraze);
     }
   }
 
