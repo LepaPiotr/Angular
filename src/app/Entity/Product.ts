@@ -1,4 +1,4 @@
-// import{Company} from './Company'
+ import{ProductPriceList} from './ProductPriceList'
 
 export interface Product {
     id: string;
@@ -6,4 +6,5 @@ export interface Product {
     shop: string;
     dateOfActualization: Date;
     lastKnowPrice: number;
+    productPriceList: ProductPriceList[]
   }
