@@ -23,9 +23,13 @@ export class MainWebDataComponent implements OnInit {
       this.api.apiCallProduct().subscribe((data : Product[]) => {
         console.log("get api data" , data);
         this.products = data;
-    
+
+        this.products.forEach(
+          product => (product.dateOfActualization = new Date(product.dateOfActualization))
+        );
       })
     }
+
 
 
     onSearchPhraze(){

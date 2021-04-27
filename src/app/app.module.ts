@@ -10,6 +10,15 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ExpandDataTableForProductComponent } from './expand-data-table-for-product/expand-data-table-for-product.component';
+import {MultiSelectModule} from 'primeng/multiselect';
+import {ToastModule} from 'primeng/toast';
+import {CalendarModule} from 'primeng/calendar';
+import {SliderModule} from 'primeng/slider';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {DialogModule} from 'primeng/dialog';
+import {DropdownModule} from 'primeng/dropdown';
+import {ProgressBarModule} from 'primeng/progressbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -27,7 +36,17 @@ import { ExpandDataTableForProductComponent } from './expand-data-table-for-prod
     TableModule,
     ButtonModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    MultiSelectModule,
+    ToastModule,
+    CalendarModule,
+    SliderModule,
+    ContextMenuModule,
+    DialogModule,
+    DropdownModule,
+    ProgressBarModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

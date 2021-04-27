@@ -1,12 +1,39 @@
-<p-table [value]="products" dataKey="id">
+<p-table [value]="products" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" 
+[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[globalFilterFields]="['product.name','product.lastKnowPrice','product.shop','product.dateOfActualization']"
+styleClass="p-datatable-striped">
     <ng-template pTemplate="header">
         <tr>
             <th style="width: 3rem"></th>
-            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-            <th pSortableColumn="lastKnowPrice">lastKnowPrice <p-sortIcon field="lastKnowPrice"></p-sortIcon></th>
-            <th pSortableColumn="shop">shop <p-sortIcon field="shop"></p-sortIcon></th>
-            <th pSortableColumn="dateOfActualization">dateOfActualization <p-sortIcon field="dateOfActualization"></p-sortIcon></th>
+            <th pSortableColumn="name" style="width: available;">Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="lastKnowPrice" style="width: 17%;">lastKnowPrice <p-sortIcon field="lastKnowPrice"></p-sortIcon></th>
+            <th pSortableColumn="shop" style="width: 10%; ">shop <p-sortIcon field="shop"></p-sortIcon></th>
+            <th pSortableColumn="dateOfActualization" style="width: 20%;">dateOfActualization <p-sortIcon field="dateOfActualization"></p-sortIcon></th>
 
+        </tr>
+                <tr>
+                    <th></th>
+            <th>
+                
+                <p-columnFilter type="text" field="name"></p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="numeric" field="lastKnowPrice" currency="PLN"> </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter field="shop" matchMode="equals" [showMenu]="false">
+                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                        <p-dropdown [ngModel]="value" [options]="shops" (onChange)="filter($event.value)" placeholder="Any" [showClear]="true">
+                            <ng-template let-option pTemplate="item">
+                                <span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </ng-template>
+                </p-columnFilter>
+            </th>
+            <th>
+                <p-columnFilter type="date" field="dateOfActualization" ></p-columnFilter>
+            </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-product let-expanded="expanded">
@@ -17,9 +44,10 @@
             <td>{{product.name}}</td>
             <td>{{product.lastKnowPrice | number : '.2-2'}} zł</td>
             <td>{{product.shop}}</td>
-            <td>{{product.dateOfActualization | date: "dd-mm-yyyy HH:mm"}}</td>
+            <td>{{product.dateOfActualization | date: "dd-MM-YYYY HH:mm"}}</td>
 
         </tr>
+
     </ng-template>
     <ng-template pTemplate="rowexpansion" let-product>
         <tr>
@@ -34,7 +62,7 @@
                         </ng-template>
                         <ng-template pTemplate="body" let-productPriceList>
                             <tr>
-                                <td>{{productPriceList.dateOfAdd | date: "dd-mm-yyyy HH:mm"}}</td>
+                                <td>{{productPriceList.dateOfAdd | date: "dd-MM-YYYY HH:mm"}}</td>
                                 <td>{{productPriceList.price | number : '.2-2' }} zł</td>
                           
                             </tr>

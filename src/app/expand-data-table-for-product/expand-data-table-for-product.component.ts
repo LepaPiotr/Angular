@@ -12,12 +12,19 @@ export class ExpandDataTableForProductComponent implements OnInit {
   
   @Input()
   products !: Product[];
+  
+  shops !: any[];
 
 
   constructor(private api:GetProductsService) { }
 
   ngOnInit(): void {
-  }
+    this.shops = [
+      {label: 'X-kom', value: 'X-kom'},
+      {label: 'Morele', value: 'Morele'},
+      {label: 'Euro', value: 'Euro'}
+  ]
+}
 
   onProductSelected(product:Product){
     this.api.apiCallProductPriceList(product.id).subscribe((data : ProductPriceList[]) => {
@@ -25,5 +32,6 @@ export class ExpandDataTableForProductComponent implements OnInit {
       product.productPriceList = data;
     })
   }
+
 
 }

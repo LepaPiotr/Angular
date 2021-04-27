@@ -1,52 +1,13 @@
-<p-table [value]="products" dataKey="id">
-    <ng-template pTemplate="header">
-        <tr>
-            <th style="width: 3rem"></th>
-            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-            <th pSortableColumn="lastKnowPrice">lastKnowPrice <p-sortIcon field="lastKnowPrice"></p-sortIcon></th>
-            <th pSortableColumn="shop">shop <p-sortIcon field="shop"></p-sortIcon></th>
-            <th pSortableColumn="dateOfActualization">dateOfActualization <p-sortIcon field="dateOfActualization"></p-sortIcon></th>
+<p style="text-align: center; margin-top: 40px;">
+<span class="p-input-icon-right p-float-label" style="width: 30%;">
+   
+    <input id="float-input"  type="text" 
+     style="width: 100%; " pInputText  [(ngModel)]="searchPhraze">
+     <label for="float-input">Search</label>
+</span> 
 
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-product let-expanded="expanded">
-        <tr>
-            <td>
-                <button type="button" (click)="onProductSelected(product)" pButton pRipple [pRowToggler]="product" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-            </td>
-            <td>{{product.name}}</td>
-            <td>{{product.lastKnowPrice | number : '.2-2'}} zł</td>
-            <td>{{product.shop}}</td>
-            <td>{{product.dateOfActualization | date: "dd-mm-yyyy HH:mm"}}</td>
+<button pButton type="submit" icon="pi pi-search" iconPos="left" (click)="onSearchPhraze()"></button>
+</p>
 
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="rowexpansion" let-product>
-        <tr>
-            <td colspan="5">
-                <div class="p-p-3">
-                    <p-table [value]="product.productPriceList" dataKey="id">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th pSortableColumn="dateOfAdd">dateOfAdd <p-sortIcon field="dateOfAdd"></p-sortIcon></th>
-                                <th pSortableColumn="price">price <p-sortIcon field="price"></p-sortIcon></th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-productPriceList>
-                            <tr>
-                                <td>{{productPriceList.dateOfAdd | date: "dd-mm-yyyy HH:mm"}}</td>
-                                <td>{{productPriceList.price | number : '.2-2' }} zł</td>
-                          
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="emptymessage">
-                            <tr>
-                                <td colspan="2">Brak danych, spróbuj później</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </div>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>
+
+<expand-data-table-for-product [products]='products'></expand-data-table-for-product>
