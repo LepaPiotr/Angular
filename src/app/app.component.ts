@@ -1,4 +1,4 @@
-import { Component, ComponentFactory } from '@angular/core';
+import { Component, ComponentFactory, ElementRef } from '@angular/core';
 
 
 
@@ -9,7 +9,10 @@ import { Component, ComponentFactory } from '@angular/core';
 })
 export class AppComponent {
   title = 'first';
-constructor(){
+constructor(private elementRef: ElementRef){
+}
+ngAfterViewInit(){
+  this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#191919';
 }
   keyUp(val:string){
     this.title = val;

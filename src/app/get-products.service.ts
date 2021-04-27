@@ -19,6 +19,8 @@ export class GetProductsService {
     return this.http.get<ProductPriceList[]>('http://localhost:8080/productPriceList/id/' + id);
   }
   apiPostFindPhraze(phraze: string){
-    return this.http.post('http://localhost:8080/find/phraze', undefined)
+    console.log("wyszukuje frazę ", phraze)
+    console.log("http://localhost:8080/find/'" + phraze)
+    return this.http.post('http://localhost:8080/find/' + phraze , undefined)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GetProductsService } from '../get-products.service';
 import { Product } from '../Entity/Product';
 import { ProductPriceList } from '../Entity/ProductPriceList';
@@ -14,6 +14,7 @@ export class MainWebDataComponent implements OnInit {
   title = 'first';
   products : Product[] = [];
   productsPriceList : ProductPriceList[] = [];
+  searchPhraze!: string;
 
 
   constructor(private api:GetProductsService) { }
@@ -26,15 +27,17 @@ export class MainWebDataComponent implements OnInit {
       })
     }
 
-    onProductSelected(product:Product){
-      this.api.apiCallProductPriceList(product.id).subscribe((data : ProductPriceList[]) => {
-        console.log("get api data" , product.id);
-        product.productPriceList = data;
-      })
+
+    onSearchPhraze(){
+      this.api.apiPostFindPhraze(this.searchPhraze).subscribe();
     }
 
-    onPutPhraze(phraze:string){
-      this.api.apiPostFindPhraze(phraze);
-    }
+    
+  onProductSelected(product:Product){
+    this.api.apiCallProductPriceList(product.id).subscribe((data : ProductPriceList[]) => {
+      console.log("get api data" , product.id);
+      product.productPriceList = data;
+    })
+  }
   }
 
