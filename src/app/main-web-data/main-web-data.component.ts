@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GetProductsService } from '../get-products.service';
 import { Product } from '../Entity/Product';
 import { ProductPriceList } from '../Entity/ProductPriceList';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -17,10 +18,12 @@ export class MainWebDataComponent implements OnInit {
   searchPhraze!: string;
 
 
-  constructor(private api:GetProductsService) { }
+  constructor(private api:GetProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-      this.api.apiCallProduct().subscribe((data : Product[]) => {
+    let name = this.route.snapshot.params.name;
+    console.log('name in main component' , name)
+      this.api.apiCallProduct(name).subscribe((data : Product[]) => {
         console.log("get api data" , data);
         this.products = data;
 

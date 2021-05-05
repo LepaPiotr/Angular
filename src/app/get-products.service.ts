@@ -12,8 +12,14 @@ export class GetProductsService {
     private http:HttpClient
   ) { }
 
-  apiCallProduct(){
-    return this.http.get<Product[]>('http://localhost:8080/product');
+  apiCallProduct(phraze: string){
+    console.log('phare jest rowne ' , phraze);
+    if(phraze != undefined){
+      return this.http.get<Product[]>('http://localhost:8080/product/name/' + phraze);
+    }
+    else{
+      return this.http.get<Product[]>('http://localhost:8080/product');
+    }
   }
   apiCallProductPriceList(id: string){
     return this.http.get<ProductPriceList[]>('http://localhost:8080/productPriceList/id/' + id);
