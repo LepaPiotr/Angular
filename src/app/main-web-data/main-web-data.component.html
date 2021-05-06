@@ -5,8 +5,9 @@
      style="width: 100%; " pInputText  [(ngModel)]="searchPhraze">
      <label for="float-input">Search</label>
 </span> 
-
+<a routerLink="/search/{{searchPhraze}}" >
 <button pButton type="submit" icon="pi pi-search" iconPos="left" (click)="onSearchPhraze()"></button>
+</a>
 </p>
 
 

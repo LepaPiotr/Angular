@@ -17,7 +17,6 @@ export class MainWebDataComponent implements OnInit {
   productsPriceList : ProductPriceList[] = [];
   searchPhraze!: string;
 
-
   constructor(private api:GetProductsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -37,6 +36,14 @@ export class MainWebDataComponent implements OnInit {
 
     onSearchPhraze(){
       this.api.apiPostFindPhraze(this.searchPhraze).subscribe();
+      this.api.apiCallProduct(this.searchPhraze).subscribe((data : Product[]) => {
+        console.log("get api data" , data);
+        this.products = data;
+
+        this.products.forEach(
+          product => (product.dateOfActualization = new Date(product.dateOfActualization))
+        );
+      })
     }
 
     
@@ -45,6 +52,11 @@ export class MainWebDataComponent implements OnInit {
       console.log("get api data" , product.id);
       product.productPriceList = data;
     })
+  }
+
+  redirectRoute() : string{
+    console.log("próbuje redirectu na " , "/serch/" + this.searchPhraze)
+     return "/serch/" + this.searchPhraze;
   }
   }
 
