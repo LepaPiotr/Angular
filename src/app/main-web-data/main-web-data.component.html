@@ -1,14 +1,15 @@
-<p style="text-align: center; margin-top: 40px;">
+<div style="text-align: center; margin-top: 20px; margin-bottom: 25px;">
+<div style="width: 300px; height: 100px; background-color: red; position: absolute;"> test</div>
+
 <span class="p-input-icon-right p-float-label" style="width: 30%;">
    
-    <input id="float-input"  type="text" 
+    <input id="float-input" (keyup.enter)="onSearchPhraze()"  type="text" 
      style="width: 100%; " pInputText  [(ngModel)]="searchPhraze">
+     
      <label for="float-input">Search</label>
 </span> 
-<a routerLink="/search/{{searchPhraze}}" >
+
 <button pButton type="submit" icon="pi pi-search" iconPos="left" (click)="onSearchPhraze()"></button>
-</a>
-</p>
+</div>
 
-
-<expand-data-table-for-product [products]='products'></expand-data-table-for-product>
+<expand-data-table-for-product *ngIf='name' [products]='products'></expand-data-table-for-product>

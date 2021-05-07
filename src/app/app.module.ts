@@ -27,7 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     ProductCardComponent,
     MainWebDataComponent,
-    ExpandDataTableForProductComponent
+    ExpandDataTableForProductComponent,
   ],
   imports: [
     BrowserModule,

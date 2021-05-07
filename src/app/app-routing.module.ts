@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'search/:name',
     component: MainWebDataComponent
+  },
+  {
+    path: 'search',
+    component: MainWebDataComponent
   }
 ];
 

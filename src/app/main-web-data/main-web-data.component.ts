@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GetProductsService } from '../get-products.service';
 import { Product } from '../Entity/Product';
 import { ProductPriceList } from '../Entity/ProductPriceList';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -16,13 +16,13 @@ export class MainWebDataComponent implements OnInit {
   products : Product[] = [];
   productsPriceList : ProductPriceList[] = [];
   searchPhraze!: string;
+  name!: string;
 
-  constructor(private api:GetProductsService, private route: ActivatedRoute) { }
+  constructor(private api:GetProductsService, private route: ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
-    let name = this.route.snapshot.params.name;
-    console.log('name in main component' , name)
-      this.api.apiCallProduct(name).subscribe((data : Product[]) => {
+    this.name = this.route.snapshot.params.name;
+      this.api.apiCallProduct(this.name).subscribe((data : Product[]) => {
         console.log("get api data" , data);
         this.products = data;
 
@@ -44,6 +44,7 @@ export class MainWebDataComponent implements OnInit {
           product => (product.dateOfActualization = new Date(product.dateOfActualization))
         );
       })
+      this.router.navigateByUrl("search/" + this.searchPhraze);
     }
 
     
@@ -54,9 +55,6 @@ export class MainWebDataComponent implements OnInit {
     })
   }
 
-  redirectRoute() : string{
-    console.log("próbuje redirectu na " , "/serch/" + this.searchPhraze)
-     return "/serch/" + this.searchPhraze;
-  }
+
   }
 
