@@ -25,8 +25,11 @@ export class GetProductsService {
     return this.http.get<ProductPriceList[]>('http://localhost:8080/productPriceList/id/' + id);
   }
   apiPostFindPhraze(phraze: string){
-    console.log("wyszukuje frazę ", phraze)
+    if(phraze != undefined && phraze.trim() != ""){
     console.log("http://localhost:8080/find/'" + phraze)
     return this.http.post('http://localhost:8080/find/' + phraze , undefined)
+    }
+    else
+   return this.http.post('http://localhost:8080/find/' , undefined);
   }
 }

@@ -1,5 +1,9 @@
-<div style="text-align: center; margin-top: 20px; margin-bottom: 25px;">
-<div style="width: 300px; height: 100px; background-color: red; position: absolute;"> test</div>
+<div style="text-align: center; margin-top: 30px; margin-bottom: 120px; margin-left: 20px;">
+<div style="width: 300px; height: 200px; position: absolute;"> 
+    <a routerLink="">
+<img src="assets/images/prod_img/logo.png" alt="" height="150px">
+</a>
+</div>
 
 <span class="p-input-icon-right p-float-label" style="width: 30%;">
    
@@ -12,4 +16,18 @@
 <button pButton type="submit" icon="pi pi-search" iconPos="left" (click)="onSearchPhraze()"></button>
 </div>
 
-<expand-data-table-for-product *ngIf='name' [products]='products'></expand-data-table-for-product>
+<expand-data-table-for-product *ngIf='name; else welcomePage' [products]='products'></expand-data-table-for-product>
+
+<ng-template #welcomePage>
+<div style="text-align: center; margin-top: 200px; font-size: 30px; margin-left: 20px; margin-right: 20px;">
+    <p>Witaj w wyszukiwarce cen produktów, nasza strona wspiera następujące sklepy:</p>
+    <ul style="width: 15%; margin-left: 42.5% ;">
+        <li>Media expert</li>
+        <li>Euro RTV AGD</li>
+        <li>X-kom</li>
+    </ul>
+    <p>W celu wyszukania produktu wpisz go w pole wyszukiwania na górzę strony, jeśli nie znajdziemy danego produktu, lub jego cena jest nieaktualna wpadnij za jakiś czas, spóbujemy go dla ciebie znaleźć i monitorować jego cenę.
+    </p>
+</div>
+
+</ng-template>
