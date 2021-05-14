@@ -7,4 +7,6 @@ export interface Product {
     dateOfActualization: Date;
     lastKnowPrice: number;
     productPriceList: ProductPriceList[]
+    imageUrl: string;
+    link: string;
   }

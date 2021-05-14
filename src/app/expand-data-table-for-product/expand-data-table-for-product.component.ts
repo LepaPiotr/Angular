@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GetProductsService } from '../get-products.service';
 import { Product } from '../Entity/Product';
 import { ProductPriceList } from '../Entity/ProductPriceList';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'expand-data-table-for-product',
@@ -16,7 +17,7 @@ export class ExpandDataTableForProductComponent implements OnInit {
   shops !: any[];
 
 
-  constructor(private api:GetProductsService) { }
+  constructor(private api:GetProductsService, private config: PrimeNGConfig) { }
 
   ngOnInit(): void {
     this.shops = [
@@ -24,6 +25,26 @@ export class ExpandDataTableForProductComponent implements OnInit {
       {label: 'Morele', value: 'Morele'},
       {label: 'Euro', value: 'Euro'}
   ]
+
+  this.config.setTranslation({
+    contains: 'Zawiera',
+    startsWith: 'Zaczyna się od',
+    notContains: 'Nie zawiera',
+    endsWith: 'Kończy się na',
+    equals: 'Jest równy',
+    notEquals: 'Jest różny od',
+    noFilter: 'Brak filtra',
+    dateIs: 'Data jest równa',
+    dateIsNot: 'Data nie jest równa',
+    dateBefore: 'Data przed',
+    dateAfter: 'Data po',
+    lt: 'Mniej niż',
+    lte: 'Mniej lub tyle samo',
+    gt: 'Więcej niż',
+    gte: 'Więcej lub tyle samo'
+    
+    //translations
+});
 }
 
   onProductSelected(product:Product){
