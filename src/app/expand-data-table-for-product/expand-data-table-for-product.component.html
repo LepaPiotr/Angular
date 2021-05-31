@@ -59,6 +59,11 @@ styleClass="p-datatable-striped">
         </tr>
 
     </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="6">Brak wyników po wskazanej frazie, spróbujemy je wyszukać, wróć ponownie później</td>
+        </tr>
+    </ng-template>
     <ng-template pTemplate="rowexpansion" let-product>
         <tr>
             <td colspan="6">
