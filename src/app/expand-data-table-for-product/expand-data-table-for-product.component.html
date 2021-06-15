@@ -1,5 +1,5 @@
 <p-table [value]="products" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" 
-[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[paginator]="true" currentPageReportTemplate="{first} - {last} / {totalRecords}"
 [globalFilterFields]="['product.name','product.lastKnowPrice','product.shop','product.dateOfActualization']"
 styleClass="p-datatable-striped">
     <ng-template pTemplate="header">
@@ -53,7 +53,7 @@ styleClass="p-datatable-striped">
     </ng-template>
     <ng-template pTemplate="emptymessage">
         <tr>
-            <td colspan="6">Brak wyników po wskazanej frazie, spróbujemy je wyszukać, wróć ponownie później</td>
+            <td colspan="5">Brak wyników dla wskazanej frazy, spróbujemy ją wyszukać, wróć ponownie później</td>
         </tr>
     </ng-template>
     <ng-template pTemplate="rowexpansion" let-product>
