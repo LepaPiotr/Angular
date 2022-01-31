@@ -1,5 +1,5 @@
 <p-table [value]="products" dataKey="id" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" 
-[paginator]="true" currentPageReportTemplate="{first} - {last} / {totalRecords}"
+[paginator]="true" currentPageReportTemplate=" {first} - {last} / {totalRecords}"
 [globalFilterFields]="['product.name','product.lastKnowPrice','product.shop','product.dateOfActualization']"
 styleClass="p-datatable-striped">
     <ng-template pTemplate="header">
